@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+.fs-12px{
+    font-size: 12px;
+}
+.fs-20px{
+    font-size: 20px;
+}
+.text-neutral-400 {
+    color: #a1a1a1;
+}
+.text-neutral-300 {
+    color: #d4d4d4;
+}
+.text-neutral-500 {
+    color: #737373;
+}
+.text-neutral-600 {
+    color: #525252;
+}
+
+
+.bg-black-custom{
+    background-color: #0a0a0a;
+}
+.text-orange-500 {
+    color: oklab(0.71 0.14 0.16);
+}
+body{
+    padding-top: 81px;
+}

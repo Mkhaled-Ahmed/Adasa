@@ -1,0 +1,328 @@
+header {
+    background-image: linear-gradient(#26262680 1px, #0000 1px),
+        linear-gradient(90deg, #26262680 1px, #0000 1px);
+    background-size: 60px 60px;
+    padding-block: 80px;
+}
+
+.custom-badge {
+    padding: 8px 16px;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    background-color: rgba(249, 115, 22, 0.1);
+}
+
+.dot-1 {
+    width: 6px;
+    height: 6px;
+    background-color: #f97316;
+    animation: 2s infinite fade;
+}
+
+.dot-2 {
+    width: 8px;
+    height: 8px;
+    background-color: #f97316;
+    animation: fade 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+h1 span {
+    color: #fbbf24;
+}
+
+.header-description {
+    max-width: 800px;
+}
+
+.explore-btn {
+    padding: 16px 32px;
+    background-color: #f97316;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.explore-btn:hover {
+    transform: translateY(-2px);
+}
+
+.explore-btn:hover i {
+    transform: translateX(-4px);
+}
+
+.more-btn {
+    padding: 16px 32px;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.more-btn:hover {
+    color: #f97316 !important;
+    background-color: rgba(249, 115, 22, 0.1);
+    border-color: #f97316;
+}
+
+/* Stats Section */
+.stats-section {
+    padding-block: 80px;
+    background-color: #111;
+    border-block: 1px solid #262626;
+}
+
+.stat-item {
+    border: 1px solid #262626;
+    border-radius: 24px;
+    background-color: rgba(22, 22, 22, 0.8);
+    transition: all 0.3s;
+}
+
+.stat-item:hover {
+    transform: scale(1.05);
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.fs-30px {
+    font-size: 30px;
+}
+
+/* Values Section */
+.values-section {
+    padding-block: 96px;
+}
+
+.section-title {
+    font-size: 48px;
+}
+
+.value-card {
+    background-color: rgb(22, 22, 22);
+    border: 1px solid rgb(38, 38, 38);
+    border-radius: 24px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.value-icon-container {
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    background-color: rgba(249, 115, 22, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.value-card:hover .value-icon-container {
+    background: linear-gradient(to right, #ff6900, #f0b100);
+    border-color: transparent;
+}
+
+.value-card:hover .value-icon-container i {
+    color: white;
+}
+
+.fs-14px {
+    font-size: 14px;
+}
+
+/* Team Section */
+.team-section {
+    padding-block: 96px;
+    background-color: #111;
+    border-block: 1px solid #262626;
+}
+
+.team-card {
+    background: #161616;
+    border: 1px solid #262626;
+    border-radius: 24px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.team-card:hover {
+    border-color: rgba(249, 115, 22, 0.4);
+    transform: translateY(-6px);
+}
+
+.team-img-container {
+    width: 50%;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.team-img-container img {
+    object-fit: cover;
+    transition: all 0.3s;
+}
+
+.team-status {
+    width: 16px;
+    height: 16px;
+    background-color: #ff6900;
+    border: 3px solid rgb(22, 22, 22);
+    bottom: 0px;
+    right: 0px;
+}
+
+
+
+.team-card:hover .team-img-container img {
+    transform: scale(1.1);
+}
+
+.team-card:hover .team-img {
+    border-color: rgba(249, 115, 22, 0.4);
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    width: 30px;
+    height: 30px;
+    background: #f97316;
+    border-radius: 50%;
+    border: 3px solid #161616;
+}
+
+.social-btn {
+    width: 36px;
+    height: 36px;
+    background: #262626;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: #f97316;
+    color: white;
+}
+
+.social-btn.linkedin:hover {
+    background: #0a66c2;
+}
+
+/* Subscribe Section */
+.subscribe {
+    padding-block: 96px;
+    border-top: 1px solid #262626;
+}
+
+.subscribe-content {
+    padding: 64px;
+    background-color: #161616;
+    border: 1px solid #262626;
+    border-radius: 24px;
+    max-width: 896px;
+}
+
+.subscribe-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(to right, oklch(70.5% 0.213 47.604), oklch(64.6% 0.222 41.116));
+    border-radius: 16px;
+}
+
+.subscribe h2 span {
+    color: #fbbf24;
+}
+
+.subscribe h2 {
+    font-size: 36px;
+}
+
+.subscribe-explore-btn {
+    padding: 16px 32px;
+    background: linear-gradient(to right, oklch(70.5% 0.213 47.604), oklch(64.6% 0.222 41.116));
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.subscribe-explore-btn:hover {
+    transform: translateY(-2px);
+}
+
+.subscribe-explore-btn:hover i {
+    transform: translateX(-4px);
+}
+
+.subscribe-contact-btn {
+    padding: 16px 32px;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.subscribe-contact-btn:hover {
+    color: #f97316 !important;
+    background-color: rgba(249, 115, 22, 0.1);
+    border-color: #f97316;
+}
+
+
+
+
+
+.team-img-wrapper {
+    width: 120px;
+    height: 120px;
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 4px solid #262626;
+    transition: 0.3s;
+}
+
+
+
+
+@keyframes fade {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .subscribe h2 {
+        font-size: 28px;
+    }
+
+    .subscribe-content {
+        padding: 40px 24px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .team-info h4 {
+        font-size: 18px;
+    }
+}

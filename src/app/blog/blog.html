@@ -1,0 +1,210 @@
+<header class="bg-black-custom d-flex flex-column align-items-center">
+  <div class="custom-badge rounded-pill mb-4 d-flex align-items-center gap-2 small">
+    <div class="dot-1 rounded-circle"></div>
+    <i class="fa-regular fa-newspaper small text-orange-500"></i>
+    <span class="text-orange-500 small fw-semibold">مدونتنا</span>
+  </div>
+  <h1 class="text-white text-center mb-4">استكشف <span>مقالاتنا</span></h1>
+  <p class="text-neutral-400 fs-4 mb-5">اكتشف الدروس والرؤى وأفضل الممارسات للتطوير الحديث</p>
+</header>
+<main id="cards" class="bg-black-custom">
+  <section id="cards" class="categories bg-black-custom py-3 position-sticky z-3">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row gap-4 justify-content-between">
+        <div>
+          <div class="position-relative">
+            <input 
+            (input)="searchPost($event)"
+              type="text"
+              class="text-white small w-100"
+              id="search"
+              placeholder="ابحث في المقالات..."
+            />
+            <span class="search-icon text-neutral-500 position-absolute"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></span>
+          </div>
+        </div>
+        <div class="d-flex gap-2 flex-wrap justify-content-center">
+          <button (click)="filterPosts('all')"
+                  [disabled]='filterCategory==="all"'
+          class="category-btn text-neutral-400 fw-medium small"
+          [class.active-category]="filterCategory==='all'"
+             >
+            جميع المقالات
+          </button>
+          @for (category of data.categories; track $index) {
+            <button (click)="filterPosts(category.name)"
+            [disabled]='filterCategory===category.name'
+            class="category-btn text-neutral-400 fw-medium small"
+            [class.active-category]="filterCategory===category.name"    >
+              {{ category.name }}
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <section  class="cards-section py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <span class="text-neutral-400 fs-6"
+          >عرض <span class="text-white">{{ filteredList.length }}</span> مقالات <span [class.d-none]="filterCategory==='all'"> في <span class="text-orange-500 fw-bold">{{filterCategory}}</span></span></span
+        >
+        <div class="p-1 display-type">
+          <button
+            (click)="displayGrid()"
+            class="p-2 text-neutral-400 d-inline-flex justify-content-center align-items-center"
+            [class.clicked-btn]="displayType === 'grid'"
+          >
+            <i class="fa-solid fa-grip"></i>
+          </button>
+          <button
+            (click)="displayList()"
+            [class.clicked-btn]="displayType === 'list'"
+            class="p-2 text-neutral-400 d-inline-flex justify-content-center align-items-center"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+<div >
+          @if (displayType === 'grid') {
+        <div class="row gy-4">
+          @for (
+            post of filteredList.slice( (pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage < filteredList.length ? pageNumber * itemsPerPage : filteredList.length ); track post.id ) {
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="recent-card overflow-hidden h-100">
+                <div class="recent-img-container position-relative overflow-hidden">
+                  <img [src]="post.image" [alt]="post.title" class="w-100 h-100" />
+                  <div
+                    class="recent-badge position-absolute text-white fs-12px fw-semibold bg-black-custom rounded-pill"
+                  >
+                    {{ post.category }}
+                  </div>
+                </div>
+                <div class="p-4">
+                  <div class="d-flex gap-3 align-items-center small text-neutral-500">
+                    <div class="d-flex gap-1 align-items-center">
+                      <i class="fa-regular fa-clock"></i>
+                      <span>{{ post.readTime }}</span>
+                    </div>
+                    <div class="recent-dot rounded-circle"></div>
+                    <span> {{ puplishDate(post.date) }}</span>
+                  </div>
+                  <h3 class="text-white fw-bold">{{ post.title }}</h3>
+                  <p class="text-neutral-400 fs-12px mb-0">{{ post.excerpt }}</p>
+                  <div class="d-flex justify-content-between align-items-center pt-3 recent-footer">
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="recent-footer-img-container">
+                        <img [src]="post.author.avatar" [alt]="post.author.name" />
+                      </div>
+                      <div class="d-flex flex-column">
+                        <span class="small text-white fw-medium">{{ post.author.name }}</span>
+                        <span class="fs-12px text-neutral-500">{{ post.author.role }}</span>
+                      </div>
+                    </div>
+                    <div
+                      class="recent-footer-icon text-orange-500 rounded-circle d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      } @else {
+        @for (post of filteredList.slice( (pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage < filteredList.length ? pageNumber * itemsPerPage : filteredList.length ); track post.id) {
+          <div class="d-flex flex-column flex-md-row gx-0 card-special">
+            <div class="img-container overflow-hidden">
+              <img [src]="post.image" [alt]="post.title" class="w-100 h-100" />
+            </div>
+            <div class="flex-md-grow-1">
+              <div class="d-flex flex-column card-special-text">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div
+                    class="card-text-badge rounded-pill d-inline-flex align-items-center gap-2 fs-12px"
+                  >
+                    <span class="text-orange-500 fw-semibold">{{ post.category }}</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-1 text-neutral-500">
+                    <i class="fa-regular fa-clock fa-sm"></i>
+                    <span class="small">{{ post.readTime }}</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-1 text-neutral-500">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span class="small">{{ puplishDate(post.date) }}</span>
+                  </div>
+                </div>
+                <h2 class="text-white fw-bold mb-2">{{ post.title }}</h2>
+                <p class="mb-3 text-neutral-400">{{ post.excerpt }}</p>
+                <div class="d-flex align-items-center justify-content-between mt-auto">
+                  <div class="card-text-footer d-flex align-items-center gap-2">
+                    <div class="card-text-img-container">
+                      <img
+                        [src]="post.author.avatar"
+                        [alt]="post.author.name"
+                        class="rounded-circle"
+                      />
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="small text-white fw-semibold">{{ post.author.name }}</span>
+                      <span class="text-neutral-500 fs-12px">{{ post.author.role }}</span>
+                    </div>
+                  </div>
+                  <div
+                    class="text-orange-500 fw-semibold d-flex align-items-center gap-2 read-article-btn"
+                  >
+                    <span class="small">اقرأ المقال</span>
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      }
+
+</div>
+      <div class="mt-5"
+      [class.d-none]="filteredList.length<= itemsPerPage"  >
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <button 
+          (click)="moveStep(-1)"
+          [disabled]='pageNumber===1'
+          [class.cursor-not-allowed]="pageNumber===1"
+            class="move-btn edge-btn bg-black-custom d-flex justify-content-center align-items-center"
+          >
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+          <div class="d-flex gap-1">
+            @for (item of loopArray; track $index) {
+              <button 
+                (click)="changePage(item)"
+                [class.active-number-btn]="pageNumber==item"
+                class="move-btn number-btn bg-black-custom d-flex justify-content-center align-items-center text-neutral-600"
+              >
+                {{ item }}
+              </button>
+            }
+          </div>
+
+          <button 
+          (click)="moveStep(1)"
+          [disabled]='pageNumber===numberOfPages'
+          [class.cursor-not-allowed]="pageNumber===numberOfPages"
+            class="disabled move-btn edge-btn bg-black-custom d-flex justify-content-center align-items-center"
+          >
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+        </div>
+        <p class="pt-3 text-center text-neutral-500 small">
+          صفحة {{ pageNumber }} من {{ numberOfPages }}
+        </p>
+      </div>
+    </div>
+  </section>
+</main>

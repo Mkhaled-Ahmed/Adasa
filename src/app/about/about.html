@@ -1,0 +1,155 @@
+<header class="bg-black-custom">
+    <div class="container d-flex flex-column align-items-center">
+        <div class="custom-badge rounded-pill mb-4 d-flex align-items-center gap-2 small">
+            <div class="dot-1 rounded-circle"></div>
+            <div class="dot-2 rounded-circle"></div>
+            <span class="text-neutral-300 fw-semibold">من نحن</span>
+        </div>
+        <h1 class="text-white text-center">مهمتنا هي <span>الإعلام والإلهام</span></h1>
+        <p class="text-neutral-400 fs-4 mb-5 text-center header-description">
+            نحن مجموعة من المصورين المحترفين والمتحمسين نشارك خبراتنا لمساعدة الجميع على تطوير مهاراتهم في التصوير
+            الفوتوغرافي. نؤمن بأن كل شخص يحمل عدسة يمكنه أن يحكي قصة فريدة من نوعها.
+        </p>
+        <div class="d-flex flex-column flex-md-row gap-3 align-self-stretch align-self-md-center">
+            <a routerLink="/blog"
+                class="d-flex align-items-center justify-content-center gap-2 explore-btn rounded-pill text-decoration-none text-white">
+                <span>تصفح مقالاتنا</span>
+                <i class="fa-solid fa-arrow-left-long"></i>
+            </a>
+            <a href="mailto:hello@adasah.com"
+                class="d-flex align-items-center justify-content-center gap-2 more-btn rounded-pill text-decoration-none text-white">
+                <i class="fa-solid fa-envelope"></i>
+                <span>تواصل معنا</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row gy-3">
+            @for (stat of stats; track $index) {
+            <div class="col-6 col-md-3">
+                <div class="stat-item p-3 d-flex flex-column align-items-center">
+                    <i [class]="stat.icon + ' text-orange-500 fa-xl my-2'"></i>
+                    <span class="text-orange-500 fs-30px fw-bold">{{stat.value}}</span>
+                    <span class="text-neutral-500">{{stat.label}}</span>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values-section bg-black-custom">
+    <div class="container">
+        <div class="d-flex flex-column align-items-center mb-5">
+            <div class="custom-badge rounded-pill mb-3 d-flex align-items-center gap-2 small">
+                <div class="dot-1 rounded-circle"></div>
+                <div class="dot-2 rounded-circle"></div>
+                <span class="text-orange-500 fw-semibold">قيمنا</span>
+            </div>
+            <h2 class="text-white fw-bold section-title">ما يميزنا</h2>
+            <p class="mt-3 text-neutral-400 fs-6 mb-0 text-center">القيم التي نلتزم بها في كل ما نقدمه</p>
+        </div>
+        <div class="row gy-4">
+            @for (value of values; track $index) {
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="value-card p-4 h-100">
+                    <div class="value-icon-container mb-3 d-flex justify-content-center align-items-center">
+                        <i [class]="value.icon + ' text-orange-500 fa-xl'"></i>
+                    </div>
+                    <h3 class="text-white fs-5 fw-bold mb-3">{{value.title}}</h3>
+                    <p class="text-neutral-400 mb-0 fs-14px">{{value.description}}</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="container">
+        <div class="d-flex flex-column align-items-center mb-5">
+            <div class="custom-badge rounded-pill mb-3 d-flex align-items-center gap-2 small">
+                <div class="dot-1 rounded-circle"></div>
+                <div class="dot-2 rounded-circle"></div>
+                <span class="text-orange-500 fw-semibold">فريقنا</span>
+            </div>
+            <h2 class="text-white fw-bold section-title">تعرف على فريقنا</h2>
+            <p class="mt-3 text-neutral-400 fs-6 mb-0 text-center">مجموعة من المصورين والخبراء المتحمسين</p>
+        </div>
+        <div class="row gy-4">
+            @for (member of teamMembers; track member.id) {
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="team-card h-100 text-center p-4">
+
+                    <div class="team-img-wrapper position-relative mx-auto mb-4">
+                        <img [src]="member.avatar" [alt]="member.name" class="team-img rounded-circle">
+
+                        <div class="verified-badge d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-check text-white small"></i>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold text-white mb-1">{{member.name}}</h5>
+                    <p class="text-orange-500 small mb-4">{{member.role}}</p>
+
+                    <div class="d-flex justify-content-center gap-3">
+
+                        @if (member.social.twitter) {
+                        <a [href]="member.social.twitter" class="social-btn">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        }
+
+                        @if (member.social.github) {
+                        <a [href]="member.social.github" class="social-btn">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        }
+
+                        @if (member.social.linkedin) {
+                        <a [href]="member.social.linkedin" class="social-btn linkedin">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="subscribe bg-black-custom">
+    <div class="container">
+        <div class="subscribe-content d-flex flex-column align-items-center m-auto">
+            <div class="subscribe-icon d-flex justify-content-center align-items-center text-white mb-4">
+                <i class="fa-regular fa-envelope fa-2xl"></i>
+            </div>
+            <h2 class="text-white fw-bold mb-4">لديك أسئلة؟ <span class="">دعنا نتحدث!</span></h2>
+            <p class="text-neutral-400 fs-6 mb-4 text-center">تواصل معنا إذا كان لديك أي استفسار أو تريد معرفة المزيد عن
+                خدماتنا ومحتوانا التعليمي</p>
+            <div class="d-flex flex-column flex-md-row gap-3 align-self-stretch align-self-md-center">
+                <a routerLink="/blog"
+                    class="d-flex align-items-center justify-content-center gap-2 subscribe-explore-btn rounded-pill text-decoration-none text-white">
+                    <span>تصفح المحتوى</span>
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                </a>
+                <a href="mailto:hello@adasah.com"
+                    class="d-flex align-items-center justify-content-center gap-2 subscribe-contact-btn rounded-pill text-decoration-none text-white">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>تواصل معنا</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,70 @@
+.navbar-style{
+    background-color: #161616 !important;
+    border-bottom: 1px solid #262626;
+}
+.logo-container{
+    width: 48px;
+    height: 48px;
+    transition: all 0.3s;
+}
+.sub-title{
+    color: oklab(0.75 0.1 0.15 / 0.8);
+}
+.logo-container :hover{
+    transform: scale(1.05);
+}
+.navbar-toggler-icon :hover{
+    color: white;
+}
+.navbar-tabs-container{
+    border: 1px solid #262626;
+    padding: 6px;
+}
+.navbar-tab{
+    padding: 10px 20px !important;
+    font-weight: 500;
+    font-size: 14px;
+}
+.navbar-tab:visited{
+    color: #a3a3a3;
+}
+.navbar-tab.active-tab:visited{
+    color: white;
+}
+.navbar-tab:hover{
+    color: white;
+}
+.active-tab{
+    border: 1px solid rgba(249, 115, 22, 0.3);
+  background-color: rgba(249, 115, 22, 0.1);
+  color:oklab(0.71 0.14 0.16) !important;
+}
+.search-icon:hover{
+    color: oklch(70.5% .213 47.604);
+}
+.start-reading{
+    background-color: #f97316;
+    padding: 16px 32px;
+    color: white;
+    transition: all 0.3s;
+}
+.start-reading:hover{
+    transform: translateY(-2px);
+}
+.rounded-12px{
+    border-radius: 12px;
+}
+.rounded-16px{
+    border-radius: 16px;
+}
+
+@media (min-width: 768px) {
+  .rounded-md-pill{
+    border-radius: 800px;
+  }
+  .active-tab{
+    background-color: #FD5B00;
+    color: white !important;
+  }
+}
+

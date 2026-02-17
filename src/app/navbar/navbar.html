@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-md navbar-style fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="d-flex align-items-center gap-2 " routerLink="">
+        <div class="logo-container">
+          <img src="favicon.png" width="100%" alt="logo">
+        </div>
+        <div class="title d-flex flex-column">
+          <span class="fw-bold fs-3 text-white">{{data.siteInfo.name}}</span>
+          <span class="sub-title fs-12px">{{data.siteInfo.tagline}}</span>
+        </div>
+      </div>
+    </a>
+    <button (click)="toggleNavbar()" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="fa-solid fa-bars text-neutral-400"></i></span>
+    </button>
+    <div [class.show]="!isNavbarCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul
+        class="navbar-nav m-auto mb-2 mb-lg-0 navbar-tabs-container rounded-md-pill mt-3 mt-md-0 rounded-16px text-center">
+        <li class="nav-item">
+          <a (click)="collapseNavbar()" class="nav-link text-neutral-400 navbar-tab rounded-md-pill rounded-12px"
+            [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-tab" routerLink="/">الرئيسية</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="collapseNavbar()" class="nav-link text-neutral-400 navbar-tab rounded-md-pill rounded-12px"
+            routerLinkActive="active-tab" routerLink="/blog">المدونة</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="collapseNavbar()" class="nav-link text-neutral-400 navbar-tab rounded-md-pill rounded-12px"
+            routerLinkActive="active-tab" routerLink="/about">من
+            نحن</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item d-none d-md-block">
+          <a class="nav-link "><i class="fa-solid fa-magnifying-glass text-neutral-400 search-icon"></i></a>
+        </li>
+        <li class="nav-item w-100 ">
+          <a class="nav-link text-center " routerLink="/blog">
+            <div class="small start-reading rounded-pill fw-bold">
+              <span>ابدأ القراءة</span>
+            </div>
+          </a>
+        </li>
+
+      </ul>
+
+
+    </div>
+  </div>
+</nav>

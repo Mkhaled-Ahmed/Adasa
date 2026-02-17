@@ -1,0 +1,243 @@
+<header class="bg-black-custom ">
+  <div class="container d-flex flex-column align-items-center">
+    <div class="custom-badge rounded-pill mb-4 d-flex align-items-center gap-2 small">
+      <div class="dot-1 rounded-circle"></div>
+      <div class="dot-2 rounded-circle"></div>
+      <span class="text-neutral-300 fw-semibold">مرحباً بك في {{data.siteInfo.name}}</span>
+    </div>
+    <h1 class="text-white text-center">اكتشف <span>فن</span> <br />التصوير الفوتوغرافي</h1>
+    <p class="text-neutral-400 fs-4 mb-5 text-center">
+      انغمس في أسرار المحترفين ونصائح عملية لتطوير مهاراتك في التصوير.
+    </p>
+    <div class="d-flex flex-column flex-md-row gap-3 align-self-stretch align-self-md-center">
+      <a routerLink="/blog"
+        class="d-flex align-items-center justify-content-center gap-2 explore-btn rounded-pill text-decoration-none text-white">
+        <span> استكشف المقالات</span>
+        <i class="fa-solid fa-arrow-left-long"></i>
+      </a>
+      <a routerLink="/about"
+        class="d-flex align-items-center justify-content-center gap-2 more-btn rounded-pill text-decoration-none text-white">
+        <i class="fa-solid fa-circle-info"></i>
+        <span> اعرف المزيد</span>
+      </a>
+    </div>
+    <div class="header-info">
+      <div class="container">
+        <div class="row gy-3">
+          <div class="col-6 col-md-3">
+            <div class="info-item p-3 d-flex flex-column align-items-center">
+              <i class="fa-solid fa-newspaper text-orange-500 fa-xl my-2"></i>
+              <span class="text-orange-500 fs-30px fw-bold">+50</span>
+              <span class="text-neutral-500">مقالة</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="info-item p-3 d-flex flex-column align-items-center">
+              <i class="fa-solid fa-users text-orange-500 fa-xl my-2"></i>
+              <span class="text-orange-500 fs-30px fw-bold">+10ألف</span>
+              <span class="text-neutral-500">قارئ</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="info-item p-3 d-flex flex-column align-items-center">
+              <i class="fa-solid fa-folder-open text-orange-500 fa-xl my-2"></i>
+              <span class="text-orange-500 fs-30px fw-bold">4</span>
+              <span class="text-neutral-500">تصنيفات</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="info-item p-3 d-flex flex-column align-items-center">
+              <i class="fa-solid fa-pen-nib text-orange-500 fa-xl my-2"></i>
+              <span class="text-orange-500 fs-30px fw-bold">6</span>
+              <span class="text-neutral-500">كاتب</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="bg-black-custom">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+      <div class="mb-2">
+        <div class="custom-badge rounded-pill mb-3 d-inline-flex align-items-center gap-2 small">
+          <div class="dot-1 rounded-circle"></div>
+          <div class="dot-2 rounded-circle"></div>
+          <span class="text-main-color fw-semibold">مميز</span>
+        </div>
+        <h2 class="text-white section-title fw-bold">مقالات مختارة</h2>
+        <p class="mt-3 fs-6 text-neutral-400 mb-0">محتوى منتقى لبدء رحلة تعلمك</p>
+      </div>
+      <a routerLink="/blog"
+        class="show-all align-self-start align-self-md-end text-decoration-none text-white d-flex align-items-center gap-2">
+        <span>عرض الكل</span>
+        <i class="fa-solid fa-angle-left fa-xs"></i>
+      </a>
+    </div>
+    @for (post of data.posts.slice(0, 3); track post.id) {
+    <div class="row gx-0 card-special">
+      <div class="col-12 col-md-6 position-relative">
+        <div class="img-container overflow-hidden">
+          <img [src]="post.image" [alt]="post.title" class="w-100 h-100" />
+        </div>
+        <div class="img-badge position-absolute fs-12px text-white rounded-pill d-flex align-items-center gap-2">
+          <i class="fa-solid fa-star fa-sm mt-1"></i>
+          <span class="fw-semibold">مميز</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="d-flex flex-column card-special-text">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="card-text-badge rounded-pill d-inline-flex align-items-center gap-2 fs-12px">
+              <span class="text-main-color fw-semibold">{{ post.category }}</span>
+            </div>
+            <div class="d-flex align-items-center gap-1 text-neutral-500">
+              <i class="fa-regular fa-clock fa-sm"></i>
+              <span class="small">{{ post.readTime }}</span>
+            </div>
+          </div>
+          <h2 class="text-white fw-bold mb-3">{{ post.title }}</h2>
+          <p class="mb-4 text-neutral-400">{{ post.excerpt }}</p>
+          <div class="d-flex align-items-center justify-content-between mt-auto">
+            <div class="card-text-footer d-flex align-items-center gap-2">
+              <div class="card-text-img-container position-relative">
+                <img [src]="post.author.avatar" [alt]="post.author.name" class="rounded-circle" />
+                <div class="card-text-dot position-absolute rounded-circle"></div>
+              </div>
+              <div class="d-flex flex-column">
+                <span class="small text-white fw-semibold">{{ post.author.name }}</span>
+                <span class="text-neutral-500 fs-12px">{{ puplishDate(post.date) }}</span>
+              </div>
+            </div>
+            <div class="text-orange-500 fw-semibold d-flex align-items-center gap-2 read-article-btn">
+              <span class="small">اقرأ المقال</span>
+              <i class="fa-solid fa-arrow-left-long"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</main>
+<section class="explore-section">
+  <div class="container">
+    <div class="d-flex flex-column align-items-center">
+      <div class="custom-badge rounded-pill mb-3 d-flex align-items-center gap-2 small">
+        <div class="dot-1 rounded-circle"></div>
+        <div class="dot-2 rounded-circle"></div>
+        <span class="text-orange-500 fw-semibold">التصنيفات</span>
+      </div>
+      <h2 class="text-white fw-bold">استكشف حسب الموضوع</h2>
+      <p class="mt-3 text-neutral-400 fs-6 mb-5">اعثر على محتوى مصمم حسب اهتماماتك</p>
+    </div>
+    <div class="row gy-4">
+      @for (category of data.categories; track $index) {
+      <div class="col-6 col-md-3">
+        <a class="d-flex align-items-center justify-content-between explore-card p-4 text-decoration-none">
+          <div>
+            <div class="explore-stacking text-orange-500 mb-3 d-flex justify-content-center align-items-center">
+              <i [class]="categoryIcon[category.color]"></i>
+            </div>
+            <span class="text-white fs-6 fw-bold ">{{category.name}}</span>
+            <p class="small text-neutral-500 mb-0 mt-1">{{category.count}} مقالة</p>
+          </div>
+          <div class="ms-4 arrow-icon-container rounded-circle d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-angle-left text-white"></i>
+          </div>
+        </a>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+<section class="recent-section bg-black-custom">
+  <div class="container">
+    <div class="d-flex justify-content-between mb-5">
+      <div>
+        <div class="custom-badge rounded-pill mb-3 d-inline-flex align-items-center gap-2 small">
+          <div class="dot-1 rounded-circle"></div>
+          <div class="dot-2 rounded-circle"></div>
+          <span class="text-main-color fw-semibold">الأحدث</span>
+        </div>
+        <h2 class="text-white section-title fw-bold">أحدث المقالات</h2>
+        <p class="mt-3 fs-6 text-neutral-400 mb-0">محتوى جديد طازج من المطبعة</p>
+      </div>
+      <a href="#"
+        class="text-orange-500 show-all-aritcles align-self-end text-decoration-none d-flex align-items-center gap-2">
+        <span class="fw-semibold fs-6 ">عرض جميع المقالات</span>
+        <i class="fa-solid fa-arrow-left-long fa-xs"></i>
+      </a>
+    </div>
+    <div class="row gy-4">
+      @for(post of getRecent();track post.id){
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="recent-card overflow-hidden h-100 ">
+          <div class="recent-img-container position-relative overflow-hidden">
+            <img [src]="post.image" [alt]="post.title" class="w-100 h-100">
+            <div class="recent-badge position-absolute text-white fs-12px fw-semibold bg-black-custom rounded-pill">
+              {{post.category}}</div>
+          </div>
+          <div class="p-4 ">
+            <div class="d-flex gap-3 align-items-center small text-neutral-500 ">
+              <div class="d-flex gap-1 align-items-center">
+                <i class="fa-regular fa-clock"></i>
+                <span>{{post.readTime}}</span>
+              </div>
+              <div class="recent-dot rounded-circle"></div>
+              <span> {{ puplishDate(post.date) }}</span>
+            </div>
+            <h3 class="text-white fw-bold">{{post.title}}</h3>
+            <p class="text-neutral-400 fs-12px mb-0">{{post.excerpt}}</p>
+            <div class="d-flex justify-content-between align-items-center pt-3 recent-footer">
+              <div class="d-flex align-items-center gap-2">
+                <div class="recent-footer-img-container">
+                  <img [src]="post.author.avatar" [alt]="post.author.name">
+                </div>
+                <div class="d-flex flex-column">
+                  <span class="small text-white fw-medium">{{post.author.name}}</span>
+                  <span class="fs-12px text-neutral-500">{{post.author.role}}</span>
+                </div>
+              </div>
+              <div
+                class=" recent-footer-icon text-orange-500 rounded-circle d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-angle-left"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      }
+    </div>
+  </div>
+</section>
+<section class="subscribe bg-black-custom ">
+  <div class="container">
+    <div class="subscribe-content d-flex flex-column align-items-center m-auto">
+      <div class="subscribe-icon d-flex justify-content-center align-items-center text-white mb-4">
+        <i class="fa-regular fa-envelope fa-2xl"></i>
+      </div>
+      <h2 class="text-white fw-bold mb-4">اشترك في <span class="">نشرتنا الإخبارية</span></h2>
+      <p class="text-neutral-400 fs-6 mb-4">احصل على نصائح التصوير الحصرية ودروس جديدة مباشرة في بريدك الإلكتروني</p>
+      <div class="send-mail d-flex flex-column flex-md-row align-items-stretch  w-100 gap-2 px-4">
+        <input type="email" class="text-white small" id="emailto" placeholder="أدخل بريدك الإلكتروني">
+        <button class="subscribe-btn text-white fw-semibold text-center ">اشترك الآن</button>
+      </div>
+      <div class="px-4 d-flex flex-wrap align-items-center gap-3 mt-4">
+        <div class="imgs-container">
+          @for (post of data.posts.slice(0,3); track $index) {
+          <img [src]="post.author.avatar" [alt]="post.author.name">
+          }
+        </div>
+        <span class="text-neutral-500 small">انضم لـ <span class="text-white">+10,000</span> مصور</span>
+        <span class="d-none d-sm-inline subscribe-dot">.</span>
+        <span class="text-neutral-500 small">بدون إزعاج</span>
+        <span class="d-none d-sm-inline subscribe-dot">.</span>
+        <span class="text-neutral-500 small">إلغاء الاشتراك في أي وقت</span>
+
+      </div>
+    </div>
+  </div>
+</section>

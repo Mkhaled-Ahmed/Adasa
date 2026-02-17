@@ -1,0 +1,72 @@
+<section class="footer bg-black-custom text-neutral-500">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-md-6 col-lg-3">
+        <div routerLink="/"
+        class="d-flex align-items-center gap-2 footer-lens mb-4">
+          <div class="footer_stacking d-flex justify-content-center align-items-center pb-1">
+            <span class="text-white fw-bold fs-20px">{{data.siteInfo.name.at(0)}}</span>
+          </div>
+          <h3 class="text-white fw-bold fs-20px">{{data.siteInfo.name}}</h3>
+        </div>
+        <p class="mb-4 small">{{data.siteInfo.description}}</p>
+        <div class="d-flex gap-2">
+            <a [href]="data.siteInfo.social.twitter" class="d-block contact-box text-neutral-500 d-flex justify-content-center align-items-center text-decoration-none">
+                <i class="fa-brands fa-x-twitter"></i></a>
+            <a [href]="data.siteInfo.social.github" class="d-block contact-box text-neutral-500 d-flex justify-content-center align-items-center text-decoration-none">
+                <i class="fa-brands fa-github"></i></a>
+            <a [href]="data.siteInfo.social.linkedin" class="d-block contact-box text-neutral-500 d-flex justify-content-center align-items-center text-decoration-none">
+                <i class="fa-brands fa-linkedin"></i></a>
+            <a [href]="data.siteInfo.social.youtube" class="d-block contact-box text-neutral-500 d-flex justify-content-center align-items-center text-decoration-none">
+                <i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="footer-item overflow-hidden">
+            <div class="mb-4 d-flex align-items-center gap-2">
+            <div class="footer-line rounded-pill"></div>
+            <h3 class="fs-6 text-white fw-semibold">استكشف</h3>
+            </div>
+            <a routerLink="/" class="d-flex align-items-center gap-2 text-decoration-none text-neutral-500 footer-link">
+                <span class="footer-icon text-orange-500"><i class="fa-solid fa-angle-left fa-xs"></i></span>
+                <span class="small">الرئيسية</span>
+            </a>
+            <a routerLink="/blog" class="d-flex align-items-center gap-2 text-decoration-none text-neutral-500 footer-link">
+                <span class="footer-icon text-orange-500"><i class="fa-solid fa-angle-left fa-xs"></i></span>
+                <span class="small">المدونة</span>
+            </a>
+            <a class="d-flex align-items-center gap-2 text-decoration-none text-neutral-500 footer-link">
+                <span class="footer-icon text-orange-500"><i class="fa-solid fa-angle-left fa-xs"></i></span>
+                <span class="small">من نحن</span>
+            </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="footer-item overflow-hidden">
+            <div class="mb-4 d-flex align-items-center gap-2">
+            <div class="footer-line rounded-pill"></div>
+            <h3 class="fs-6 text-white fw-semibold">التصنيفات</h3>
+            </div>
+            
+           @for (category of data.categories; track $index) {
+            <a class="d-flex align-items-center gap-2 text-decoration-none text-neutral-500 footer-link">
+                <span class="footer-icon text-orange-500"><i class="fa-solid fa-angle-left fa-xs"></i></span>
+                <span class="small">{{category.name}}</span>
+            </a>
+           }
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="footer-item overflow-hidden">
+            <div class="mb-4 d-flex align-items-center gap-2">
+            <div class="footer-line rounded-pill"></div>
+            <h3 class="fs-6 text-white fw-semibold">ابقى على اطلاع</h3>
+            </div>
+            <p class="small mb-3">اشترك للحصول على أحدث المقالات والتحديثات.</p>
+              <input type="email" class="text-white small" id="email" placeholder="أدخل بريدك الإلكتروني">
+              <button class="footer-btn mt-3 small text-white w-100 fw-semibold rounded-pill border-0">اشترك</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
