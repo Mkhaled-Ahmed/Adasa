@@ -317,10 +317,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**David Samir Luis**
+**Mohamed Khaled**
 
-- GitHub: [@David-Samir-Luis](https://github.com/David-Samir-Luis)
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
+- GitHub: [Mohamed Khaled Shoukry](https://github.com/Mkhaled-Ahmed)
+- LinkedIn: [Mohamed Khaled Shoukry](https://www.linkedin.com/in/mohammed-khaled7)
 
 ---
 
